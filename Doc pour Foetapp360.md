@@ -71,9 +71,7 @@ Cette page permet à un étudiant spécifique de visualiser ses propres statisti
 
 ## Page de consultation (`view.php`)
 
-Cette page affiche le contenu principal d'une instance du plugin Foetapp360. Les détails doivent être complétés selon l’implémentation spécifique réalisée.
-
-**Contenu principal :** *(À compléter selon l'implémentation)*
+Cette page affiche le contenu principal d'une instance du plugin Foetapp360. Elle permet au profs de gérer la BD et de regarder les stats des étudiants, ainsi qu'elle permet au étudiants de faire des exos et regarder leurs stats.
 
 ---
 
@@ -136,8 +134,6 @@ Cette page liste toutes les instances du plugin disponibles au sein d’un cours
 **Contenu principal :**
 
 - Liste des activités Foetapp360 présentes dans le cours, avec liens vers chacune.
-
-*(À compléter selon l'implémentation)*
 
 ---
 
@@ -232,10 +228,6 @@ Les données pourront être affichées sous forme de diagramme en barres grâce 
 \-Afficher le graphique avec $OUTPUT-\>render($chart);.
 
 **Documentation utile** : [Moodle Charts API](https://docs.moodle.org/dev/Charts_API)
-
-## Annexes et notes complémentaires
-
-*(Espace réservé pour tout autre élément jugé pertinent à documenter ultérieurement.)*
 
 # Doc Moodle
 
