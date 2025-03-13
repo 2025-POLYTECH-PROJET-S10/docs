@@ -1,0 +1,59 @@
+services:
+  moodle:
+    # image: bitnami/moodle:4.1.15
+    image: bitnami/moodle:4.5
+    ports:
+      - "8080:8080"
+    volumes:
+      - moodle_app:/bitnami/moodle
+      - moodle_data:/bitnami/moodledata
+      - ./foetapp360:/bitnami/moodle/mod/foetapp360
+    environment:
+      MOODLE_USERNAME: admin
+      MOODLE_PASSWORD: 12345
+      MOODLE_DATABASE_TYPE: mysqli
+      MOODLE_DATABASE_HOST: db
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_DATABASE_USER: moodle
+      MOODLE_DATABASE_PASSWORD: moodle
+      MOODLE_URL: http://localhost:8080
+      BITNAMI_DEBUG: true
+      MOODLE_DEBUG: 1
+    depends_on:
+      - db
+    networks:
+      - moodle-net
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: moodle
+      MYSQL_USER: moodle
+      MYSQL_PASSWORD: moodle
+    networks:
+      - moodle-net
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8081:80" # phpMyAdmin will be accessible at http://localhost:8081
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    depends_on:
+      - db
+    networks:
+      - moodle-net
+
+volumes:
+  moodle_app:
+  moodle_data:
+  dbdata:
+
+networks:
+  moodle-net:
