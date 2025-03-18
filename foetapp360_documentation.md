@@ -1,12 +1,3 @@
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 1; ALERTS: 0.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p>
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
-                                   
-
 Doc realisé par :  **Ali FAWAZ, Romain HOCQUET, Alexandre MOUA, Brice VITTET**
 
 
@@ -15,10 +6,73 @@ Doc realisé par :  **Ali FAWAZ, Romain HOCQUET, Alexandre MOUA, Brice VITTET**
 
 ---
 
+# Table des matières
 
-[TOC]
-
-
+- [Documentation pour le développement du plugin Moodle "Foetapp360"](#documentation-pour-le-développement-du-plugin-moodle-foetapp360)
+  - [Introduction](#introduction)
+    - [Liens utiles](#liens-utiles)
+  - [Installation (pour utilisateurs)](#installation-pour-utilisateurs)
+    - [Prérequis](#prérequis)
+    - [Étapes d'installation](#étapes-dinstallation)
+      - [1. Télécharger le plugin](#1-télécharger-le-plugin)
+      - [2. Placer le plugin dans le bon dossier](#2-placer-le-plugin-dans-le-bon-dossier)
+      - [3. Vérifier les permissions](#3-vérifier-les-permissions)
+      - [4. Procéder à l'installation via l'administration Moodle](#4-procéder-à-linstallation-via-ladministration-moodle)
+      - [5. Vérification](#5-vérification)
+      - [6. Utilisation du plugin](#6-utilisation-du-plugin)
+    - [Mise à jour du plugin](#mise-à-jour-du-plugin)
+    - [Désinstallation](#désinstallation)
+    - [Support](#support)
+  - [Installation avec Docker (pour développeurs uniquement)](#installation-avec-docker-pour-développeurs-uniquement)
+    - [Composants fournis](#composants-fournis)
+    - [Structure du fichier `docker-compose.yml`](#structure-du-fichier-docker-composeyml)
+    - [Fonctionnement du script `reset_docker.sh`](#fonctionnement-du-script-reset_dockersh)
+    - [Instructions pour les développeurs](#instructions-pour-les-développeurs)
+  - [Base de données (`db/install.xml`)](#base-de-données-dbinstallxml)
+    - [Table: `foetapp360`](#table-foetapp360)
+    - [Table: `foetapp360_datasets`](#table-foetapp360_datasets)
+    - [Table: `foetapp360_session`](#table-foetapp360_session)
+    - [Table: `foetapp360_attempt`](#table-foetapp360_attempt)
+    - [Table: `foetapp360_feedback`](#table-foetapp360_feedback)
+    - [Table: `foetapp360_feedback_data`](#table-foetapp360_feedback_data)
+  - [Vue Statistiques (`stats.php`)](#vue-statistiques-statsphp)
+  - [Page "Mes Statistiques" (`mystats.php`)](#page-mes-statistiques-mystatsphp)
+  - [Page de consultation (`view.php`)](#page-de-consultation-viewphp)
+  - [Formulaire d'ajout/modification (`db_form_submission.php`)](#formulaire-dajoutmodification-db_form_submissionphp)
+  - [Librairie (`lib.php`)](#librairie-libphp)
+  - [Fonctions essentielles implémentées dans `lib.php`](#fonctions-essentielles-implémentées-dans-libphp)
+  - [Autres parties importantes à mentionner](#autres-parties-importantes-à-mentionner)
+  - [Vue principale (`index.php`)](#vue-principale-indexphp)
+  - [Image Manager `image_manager.php`](#image-manager-image_managerphp)
+    - [Vue d’ensemble du stockage des données](#vue-densemble-du-stockage-des-données)
+    - [Constructeur de la classe](#constructeur-de-la-classe)
+    - [Résumé](#résumé)
+  - [Fonctionnalités supplémentaires à développer](#fonctionnalités-supplémentaires-à-développer)
+    - [I - Ajouter/Choisir une Présentation](#i-ajouterchoisir-une-présentation)
+      - [Contexte](#contexte)
+    - [II - Fonctionnalité de groupe de Dataset](#ii-fonctionnalité-de-groupe-de-dataset)
+      - [Contexte](#contexte-1)
+    - [III - Graphe qui montre le taux d’erreur en fonction de la représentation donnée](#iii-graphe-qui-montre-le-taux-derreur-en-fonction-de-la-représentation-donnée)
+      - [Contexte](#contexte-2)
+  - [Annexes et notes complémentaires](#annexes-et-notes-complémentaires)
+- [Doc Moodle](#doc-moodle)
+  - [Sources](#sources)
+  - [Liens intéressants](#liens-intéressants)
+  - [Ajouter module/plugin](#ajouter-moduleplugin)
+  - [I - Plugin d’activité](#i-plugin-dactivité)
+    - [I.1 - access.php](#i1-accessphp)
+    - [I.2 - events.php](#i2-eventsphp)
+    - [I.3 - install.xml](#i3-installxml)
+    - [I.4 - upgrade.php](#i4-upgradephp)
+    - [I.5 - mobile.php](#i5-mobilephp)
+    - [I.6 - Language String Definition](#i6-language-string-definition)
+    - [I.7 - lib.php](#i7-libphp)
+    - [I.8 - mod_form - Création/Modification d’instance](#i8-mod_form-créationmodification-dinstance)
+  - [II - Upgrade un plugin](#ii-upgrade-un-plugin)
+    - [II.a - version.php](#iia-versionphp)
+    - [II.b - install.xml](#iib-installxml)
+    - [II.c - upgrade.php](#iic-upgradephp)
+  - [Annexe - Code utile en PHP](#annexe-code-utile-en-php)
 
 ---
 
@@ -199,9 +253,9 @@ Administration du site -> Plugins -> Activités -> Gérer les activités
 
 ### Support {#support}
 
-**Si vous rencontrez des problèmes liés à notre implémentation de Moodle (nous avons travaillé sur ce plugin jusqu’au 03/2025), n’hésitez pas à me contacter par mail :**
+**Si vous rencontrez des problèmes liés à notre implémentation de Moodle (nous avons travaillé sur ce plugin jusqu’au 03/2025), n’hésitez pas à nous contacter par mail :**
 
-📧 Email : [ali.fawaz.dev@outlook.com](mailto:ali.fawaz.dev@outlook.com)
+📧 Emails : [ali.fawaz.dev@outlook.com](mailto:ali.fawaz.dev@outlook.com) (Ali FAWAZ), [alexmoua.hmong@gmail.com](mailto:alexmoua.hmong@gmail.com) (Alexandre MOUA), [brice4.vittet4@gmail.com](mailto:brice4.vittet4@gmail.com) (Brice VITTET), [romain.hocquet1@gmail.com](mailto:romain.hocquet1@gmail.com) (Romain HOCQUET)
 
 **Bon usage du plugin foetapp360 !**
 
@@ -1293,8 +1347,9 @@ La classe `image_manager` est responsable de la gestion du stockage des fichiers
 
 #### Constructeur de la classe {#constructeur-de-la-classe}
 
+```php
 public function __construct($filearea)
-
+```
 
 
 * Initialise les propriétés `contextid`, `component` et `filearea`.
@@ -1304,11 +1359,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### upload_pix_image($itemid, $filename)
- {#upload_pix_image-$itemid-$filename}
+```php
+upload_pix_image($itemid, $filename)
 ```
 
 
@@ -1320,11 +1372,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### updateImageFromContent($itemid, $elem, $mform)
- {#updateimagefromcontent-$itemid-$elem-$mform}
+```php
+updateImageFromContent($itemid, $elem, $mform)
 ```
 
 
@@ -1338,11 +1387,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### getImageUrl($itemid, $filename)
- {#getimageurl-$itemid-$filename}
+```php
+getImageUrl($itemid, $filename)
 ```
 
 
@@ -1353,11 +1399,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### getImageFile($itemid, $filename)
- {#getimagefile-$itemid-$filename}
+```php
+getImageFile($itemid, $filename)
 ```
 
 
@@ -1368,11 +1411,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### addImageFromContent($itemid, $filename, $filecontent)
- {#addimagefromcontent-$itemid-$filename-$filecontent}
+```php
+addImageFromContent($itemid, $filename, $filecontent)
 ```
 
 
@@ -1385,11 +1425,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### addImageFromForm($itemid, $mform, $elem)
- {#addimagefromform-$itemid-$mform-$elem}
+```php
+addImageFromForm($itemid, $mform, $elem)
 ```
 
 
@@ -1401,11 +1438,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### delete_image($itemid, $filename)
- {#delete_image-$itemid-$filename}
+```php
+delete_image($itemid, $filename)
 ```
 
 
@@ -1417,11 +1451,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### updateImageFromForm($itemid, $mform, $elem)
- {#updateimagefromform-$itemid-$mform-$elem}
+```php
+updateImageFromForm($itemid, $mform, $elem)
 ```
 
 
@@ -1433,11 +1464,8 @@ public function __construct($filearea)
 ---
 
 
-```
-
-
-#### getImageUrlByName($filename)
- {#getimageurlbyname-$filename}
+```php
+getImageUrlByName($filename)
 ```
 
 
