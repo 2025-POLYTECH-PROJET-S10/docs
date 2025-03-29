@@ -77,7 +77,7 @@ Doc realisé par :  **Ali FAWAZ, Romain HOCQUET, Alexandre MOUA, Brice VITTET**
 ---
 
 
-## Introduction: {#introduction}
+## Introduction
 
 Cette documentation comporte certaines informations pour vous permettre de comprendre l’environnement Moodle. Il est vrai que Moodle peut sembler compliqué au début. Il existe énormément de documentation en ligne, mais elle est plus ou moins efficace.
 
@@ -97,10 +97,10 @@ Lien Plugin Github (documentation): [https://github.com/2025-POLYTECH-PROJET-S10
 Lien Plugin Github (fichier compressé): [https://github.com/2025-POLYTECH-PROJET-S10/foetapp360_zip](https://github.com/2025-POLYTECH-PROJET-S10/foetapp360_zip)
 
 
-## Installation (pour utilisateurs): {#installation-pour-utilisateurs}
+## Installation (pour utilisateurs):
 
 
-### Prérequis {#prérequis}
+### Prérequis
 
 Avant de commencer, assurez-vous d’avoir :
 
@@ -114,10 +114,10 @@ Avant de commencer, assurez-vous d’avoir :
 ---
 
 
-### Étapes d'installation {#étapes-d'installation}
+### Étapes d'installation
 
 
-#### 1. Télécharger le plugin {#1-télécharger-le-plugin}
+#### 1. Télécharger le plugin
 
 Téléchargez la dernière version de **foetapp360** depuis Github: [https://github.com/2025-POLYTECH-PROJET-S10/foetapp360_zip](#)
 
@@ -127,7 +127,7 @@ Le fichier sera au format **ZIP**.
 ---
 
 
-#### 2. Placer le plugin dans le bon dossier {#2-placer-le-plugin-dans-le-bon-dossier}
+#### 2. Placer le plugin dans le bon dossier
 
 
 
@@ -142,7 +142,7 @@ Le fichier sera au format **ZIP**.
 ---
 
 
-### 3. Vérifier les permissions {#3-vérifier-les-permissions}
+### 3. Vérifier les permissions
 
 Attribuez les bonnes permissions pour éviter les problèmes :
 
@@ -156,7 +156,7 @@ Attribuez les bonnes permissions pour éviter les problèmes :
 ---
 
 
-#### 4. Procéder à l'installation via l'administration Moodle {#4-procéder-à-l'installation-via-l'administration-moodle}
+#### 4. Procéder à l'installation via l'administration Moodle
 
 
 
@@ -175,7 +175,7 @@ Moodle détectera automatiquement le plugin **foetapp360**.
 ---
 
 
-#### 5. Vérification {#5-vérification}
+#### 5. Vérification
 
 Vérifiez que le plugin est bien installé :
 
@@ -193,7 +193,7 @@ Administration du site -> Plugins -> Activités -> Gérer les activités
 ---
 
 
-#### 6. Utilisation du plugin {#6-utilisation-du-plugin}
+#### 6. Utilisation du plugin
 
 Pour ajouter l’activité **foetapp360** dans un cours :
 
@@ -210,7 +210,7 @@ Configurez les paramètres selon vos besoins puis sauvegardez.
 ---
 
 
-### Mise à jour du plugin {#mise-à-jour-du-plugin}
+### Mise à jour du plugin
 
 Pour mettre à jour le plugin :
 
@@ -233,7 +233,7 @@ Suivez les instructions pour terminer la mise à jour.
 ---
 
 
-### Désinstallation {#désinstallation}
+### Désinstallation
 
 Pour désinstaller **foetapp360** :
 
@@ -251,7 +251,7 @@ Administration du site -> Plugins -> Activités -> Gérer les activités
 ---
 
 
-### Support {#support}
+### Support
 
 **Si vous rencontrez des problèmes liés à notre implémentation de Moodle (nous avons travaillé sur ce plugin jusqu’au 03/2025), n’hésitez pas à nous contacter par mail :**
 
@@ -260,12 +260,12 @@ Administration du site -> Plugins -> Activités -> Gérer les activités
 **Bon usage du plugin foetapp360 !**
 
 
-## Installation avec Docker (pour développeurs uniquement): {#installation-avec-docker-pour-développeurs-uniquement}
+## Installation avec Docker (pour développeurs uniquement):
 
 Afin de faciliter le processus de développement, nous proposons une solution clé en main pour exécuter Moodle et le plugin **foetapp360** à l'aide de conteneurs Docker.
 
 
-### Composants fournis {#composants-fournis}
+### Composants fournis
 
 
 
@@ -276,7 +276,7 @@ Afin de faciliter le processus de développement, nous proposons une solution cl
 ---
 
 
-### Structure du fichier `docker-compose.yml` {#structure-du-fichier-docker-compose-yml}
+### Structure du fichier `docker-compose.yml`
 
 Ce fichier définit trois services principaux :
 
@@ -292,7 +292,7 @@ Des volumes persistent les données pour Moodle, MoodleData et MySQL, et tous le
 ---
 
 
-### Fonctionnement du script `reset_docker.sh` {#fonctionnement-du-script-reset_docker-sh}
+### Fonctionnement du script `reset_docker.sh`
 
 Le script assure une réinitialisation complète et propre de l'environnement Docker en suivant les étapes suivantes :
 
@@ -314,7 +314,7 @@ Cette séquence permet d'assurer la détection et l'installation automatique du 
 ---
 
 
-### Instructions pour les développeurs {#instructions-pour-les-développeurs}
+### Instructions pour les développeurs
 
 
 
@@ -349,10 +349,10 @@ Utilisez les identifiants suivants pour vous connecter :
 ---
 
 
-## Base de données (`db/install.xml`): {#base-de-données-db-install-xml}
+## Base de données (`db/install.xml`):
 
 
-### Table: `foetapp360` {#table-foetapp360}
+### Table: `foetapp360`
 
 Stocke les instances du module d'activité **foetapp360**.
 
@@ -486,7 +486,7 @@ Ceci est nécessaire pour modeler, vous avez le droit d’ajouter des champs, ma
 ---
 
 
-### Table: `foetapp360_datasets` {#table-foetapp360_datasets}
+### Table: `foetapp360_datasets`
 
 Stocke les ensembles de données pour l'exercice.
 
@@ -603,7 +603,7 @@ Stocke les ensembles de données pour l'exercice.
 ---
 
 
-### Table: `foetapp360_session` {#table-foetapp360_session}
+### Table: `foetapp360_session`
 
 Stocke les sessions utilisateur.
 
@@ -750,7 +750,7 @@ Stocke les sessions utilisateur.
 ---
 
 
-### Table: `foetapp360_attempt` {#table-foetapp360_attempt}
+### Table: `foetapp360_attempt`
 
 Stocke les réponses et statistiques des tentatives des étudiants.
 
@@ -953,7 +953,7 @@ Stocke les réponses et statistiques des tentatives des étudiants.
 ---
 
 
-### Table: `foetapp360_feedback` {#table-foetapp360_feedback}
+### Table: `foetapp360_feedback`
 
 Stocke les feedbacks en fonction des réponses.
 
@@ -1057,7 +1057,7 @@ Stocke les feedbacks en fonction des réponses.
 ---
 
 
-### Table: `foetapp360_feedback_data` {#table-foetapp360_feedback_data}
+### Table: `foetapp360_feedback_data`
 
 Stocke les textes de feedback à afficher.
 
@@ -1109,7 +1109,7 @@ Stocke les textes de feedback à afficher.
 * Clé primaire: `id`
 
 
-## Vue Statistiques (`stats.php`) {#vue-statistiques-stats-php}
+## Vue Statistiques (`stats.php`)
 
 Cette page affiche les statistiques globales et détaillées des performances des étudiants sur les exercices réalisés dans le plugin.
 
@@ -1141,7 +1141,7 @@ Cette page affiche les statistiques globales et détaillées des performances de
 ---
 
 
-## Page "Mes Statistiques" (`mystats.php`) {#page-"mes-statistiques"-mystats-php}
+## Page "Mes Statistiques" (`mystats.php`)
 
 Permet à un étudiant spécifique de consulter ses statistiques personnelles.
 
@@ -1168,7 +1168,7 @@ Permet à un étudiant spécifique de consulter ses statistiques personnelles.
 ---
 
 
-## Page "Mes Statistiques" (`mystats.php`) {#page-"mes-statistiques"-mystats-php}
+## Page "Mes Statistiques" (`mystats.php`)
 
 Cette page permet à un étudiant spécifique de visualiser ses propres statistiques individuelles.
 
@@ -1193,7 +1193,7 @@ Cette page permet à un étudiant spécifique de visualiser ses propres statisti
 ---
 
 
-## Page de consultation (`view.php`) {#page-de-consultation-view-php}
+## Page de consultation (`view.php`)
 
 Cette page affiche le contenu principal d'une instance du plugin Foetapp360. Les détails doivent être complétés selon l’implémentation spécifique réalisée.
 
@@ -1203,7 +1203,7 @@ Cette page affiche le contenu principal d'une instance du plugin Foetapp360. Les
 ---
 
 
-## Formulaire d'ajout/modification (`db_form_submission.php`) {#formulaire-d'ajout-modification-db_form_submission-php}
+## Formulaire d'ajout/modification (`db_form_submission.php`)
 
 Cette page gère l'ajout et la modification des entrées (datasets) dans la base de données, incluant les images associées.
 
@@ -1233,7 +1233,7 @@ Cette page gère l'ajout et la modification des entrées (datasets) dans la base
 ---
 
 
-## Librairie (`lib.php`) {#librairie-lib-php}
+## Librairie (`lib.php`)
 
 Fichier regroupant des fonctions essentielles du plugin.
 
@@ -1250,7 +1250,7 @@ Fichier regroupant des fonctions essentielles du plugin.
 ---
 
 
-## Fonctions essentielles implémentées dans `lib.php` {#fonctions-essentielles-implémentées-dans-lib-php}
+## Fonctions essentielles implémentées dans `lib.php`
 
 
 ```
@@ -1304,7 +1304,7 @@ Ces fonctions gèrent le cycle de vie d’une instance du plugin au sein d'un co
 ---
 
 
-## Autres parties importantes à mentionner {#autres-parties-importantes-à-mentionner}
+## Autres parties importantes à mentionner
 
 
 
@@ -1315,7 +1315,7 @@ Ces fonctions gèrent le cycle de vie d’une instance du plugin au sein d'un co
 ---
 
 
-## Vue principale (`index.php`) {#vue-principale-index-php}
+## Vue principale (`index.php`)
 
 Cette page liste toutes les instances du plugin disponibles au sein d’un cours.
 
@@ -1326,12 +1326,12 @@ Cette page liste toutes les instances du plugin disponibles au sein d’un cours
 * Liste des activités Foetapp360 présentes dans le cours, avec liens vers chacune.
 
 
-## Image Manager `image_manager.php`: {#image-manager-image_manager-php}
+## Image Manager `image_manager.php`:
 
 La classe `image_manager` est responsable de la gestion du stockage des fichiers image dans un plugin Moodle (`mod_foetapp360`). Elle fournit des méthodes pour téléverser, récupérer, mettre à jour et supprimer des fichiers image dans le système de fichiers de Moodle. La classe interagit avec l'API de stockage de fichiers de Moodle et avec une table spécifique de la base de données `foetapp360_datasets` pour gérer ces images.
 
 
-#### Vue d’ensemble du stockage des données {#vue-d’ensemble-du-stockage-des-données}
+#### Vue d’ensemble du stockage des données
 
 
 
@@ -1345,7 +1345,7 @@ La classe `image_manager` est responsable de la gestion du stockage des fichiers
 ---
 
 
-#### Constructeur de la classe {#constructeur-de-la-classe}
+#### Constructeur de la classe
 
 ```php
 public function __construct($filearea)
@@ -1478,18 +1478,18 @@ getImageUrlByName($filename)
 ---
 
 
-#### Résumé {#résumé}
+#### Résumé
 
 La classe `image_manager` abstrait et simplifie la gestion des fichiers image dans le système de fichiers de Moodle. Elle est étroitement intégrée avec la table `foetapp360_datasets` et offre une approche structurée pour stocker, récupérer, mettre à jour et supprimer les fichiers image associés aux enregistrements de datasets dans le plugin.
 
 
-## <span style="text-decoration:underline;">Fonctionnalités supplémentaire à développer :</span> {#fonctionnalités-supplémentaire-à-développer}
+## <span style="text-decoration:underline;">Fonctionnalités supplémentaire à développer :</span>
 
 
-### I - Ajouter/Choisir une Présentation {#i-ajouter-choisir-une-présentation}
+### I - Ajouter/Choisir une Présentation
 
 
-#### Contexte :  {#contexte}
+#### Contexte : 
 
 L’objectif est de pouvoir choisir parmi plusieurs présentations autres que le sommet qu’on a fait par défaut pour le partogramme et le schéma simplifié (Siège et Face manquant), qui se traduit par des images complètement différentes. De ce fait, il faudrait que l'enseignant, quand il ajoute une représentation puisse choisir le style de présentation et que ces dernières apparaissent dans la vue exercice.
 
@@ -1526,10 +1526,10 @@ Dans attempt.php :
 * Modifier les deux lignes contenant “$interior_image” pour intégrer l’URL précédemment récupéré en variable.
 
 
-### II - Fonctionnalité de groupe de Dataset {#ii-fonctionnalité-de-groupe-de-dataset}
+### II - Fonctionnalité de groupe de Dataset
 
 
-#### Contexte :  {#contexte}
+#### Contexte : 
 
 Nous avons discuté avec Lionel de la possibilité d’introduire un système de classement des représentations par groupe à l’aide d’un identifiant unique. Par exemple, les représentations actuellement définies par défaut seraient associées au groupe 0.
 
@@ -1546,10 +1546,10 @@ Modifier la ligne où “$random_dataset” est instancié. Il faut modifier la 
 Il faut enfin ajouter dans la table “foetapp360” un champ “selected_dataset_group”. Faire en sorte que ce champ ait une valeur par défaut. Ensuite dans la page “Gérer les ensembles” ajouter un champ dans le formulaire pour modifier cette valeur.
 
 
-### III - Graphe qui montre le taux d’erreur en fonction de la représentation donnée {#iii-graphe-qui-montre-le-taux-d’erreur-en-fonction-de-la-représentation-donnée}
+### III - Graphe qui montre le taux d’erreur en fonction de la représentation donnée
 
 
-#### Contexte :  {#contexte}
+#### Contexte : 
 
 Un dernier **graphe intéressant**, qui n’a pas encore été ajouté, serait celui permettant d’**afficher le taux d’erreur des étudiants en fonction de la représentation et de l’attribut donné**.
 
@@ -1599,12 +1599,12 @@ Les données pourront être affichées sous forme de diagramme en barres grâce 
 **Documentation utile** :[ Moodle Charts API](https://docs.moodle.org/dev/Charts_API)
 
 
-## Annexes et notes complémentaires {#annexes-et-notes-complémentaires}
+## Annexes et notes complémentaires
 
 *(Espace réservé pour tout autre élément jugé pertinent à documenter ultérieurement.)*
 
 
-# Doc Moodle: {#doc-moodle}
+# Doc Moodle:
 
 Ci-dessous, vous trouverez les liens qui nous semblent les plus utiles, ainsi que quelques astuces sur Moodle et certains fichiers spécifiques exigés par la plateforme.
 
@@ -1624,12 +1624,12 @@ Ci-dessous, vous trouverez les liens qui nous semblent les plus utiles, ainsi qu
 *server\moodle\mod\nom_module*
 
 
-## I - Plugin d’activité: {#i-plugin-d’activité}
+## I - Plugin d’activité:
 
 [https://moodledev.io/docs/5.0/apis/plugintypes/mod](https://moodledev.io/docs/5.0/apis/plugintypes/mod)
 
 
-### I.1 - access.php {#i-1-access-php}
+### I.1 - access.php
 
 
 ## Path: mod/*db/access.php*
@@ -1673,7 +1673,7 @@ Dans ‘archetypes’, on définit qui à accès à la règle.
 On dit qu’il a accès avec la constante: “CAP_ALLOW”.
 
 
-### I.2 - events.php  {#i-2-events-php}
+### I.2 - events.php 
 
 
 ## Path: mod/*db/events.php*
@@ -1697,7 +1697,7 @@ $observers = [
 ];
 
 
-### I.3 - install.xml {#i-3-install-xml}
+### I.3 - install.xml
 
 
 ## Path: mod/*db/install.xml*
@@ -1711,7 +1711,7 @@ Il faut une table dont le nom **correspond exactement** au nom du plugin.
 À chaque fois que vous modifiez la base de données définie dans le plugin, vous devez changer la version (build number) du plugin afin que la modification de la base de données soit prise en compte lors de la mise à jour du plugin.
 
 
-### I.4 - upgrade.php {#i-4-upgrade-php}
+### I.4 - upgrade.php
 
 
 ## Path: mod/*db/upgrade.php*
@@ -1723,7 +1723,7 @@ Contient les étapes des changements comme le changement de la database, config.
 Le fichier install.xml doit **impérativement toujours correspondre** au schéma généré.
 
 
-### I.5 - mobile.php {#i-5-mobile-php}
+### I.5 - mobile.php
 
 
 ## Path: mod/*db/mobile.php*
@@ -1733,7 +1733,7 @@ On n’a pas utiliser ce fichiers, mais plutôt c’est le fichier qui permet d�
 [https://moodledev.io/general/app/development/plugins-development-guide](https://moodledev.io/general/app/development/plugins-development-guide)
 
 
-### I.6 - Language String Definition {#i-6-language-string-definition}
+### I.6 - Language String Definition
 
 
 ## Path: mod/*lang/en/[modname].php*
@@ -1762,7 +1762,7 @@ $string['pluginname'] = 'The name of your activity';
 
 
 
-### I.7 - lib.php {#i-7-lib-php}
+### I.7 - lib.php
 
 
 ## Path: mod/lib.php
@@ -1781,25 +1781,25 @@ function [modname]_delete_instance($id): bool;
 
 
 
-### I.8 - mod_form - Creation/Modification d’instance {#i-8-mod_form-creation-modification-d’instance}
+### I.8 - mod_form - Creation/Modification d’instance
 
 
 ## Path: mod/mod_form.php
 
 
-## II - Upgrade un plugin {#ii-upgrade-un-plugin}
+## II - Upgrade un plugin
 
 [https://moodledev.io/docs/5.0/guides/upgrade](https://moodledev.io/docs/5.0/guides/upgrade)
 
 
-### II.a - version.php {#ii-a-version-php}
+### II.a - version.php
 
 **<span style="text-decoration:underline;">Règle:</span>** Le fichier *version.php* doit être incrémenter après chaque changement dans le dossier *db/*, d’un code JavaScript, dans le pack de langue et ajout de nouvelle “auto-loaded class”.
 
 <span style="text-decoration:underline;">Un incrément de version déclenche la procédure d’upgrade et reset tous les caches.</span>
 
 
-### II.b - install.xml {#ii-b-install-xml}
+### II.b - install.xml
 
 Seulement utiliser pendant l’installation initiale du plugin.
 
@@ -1808,7 +1808,7 @@ Ce fichier contient une fonction
 Doit être créé et maintenu avec XMLDB Editor.
 
 
-### II.c - upgrade.php {#ii-c-upgrade-php}
+### II.c - upgrade.php
 
 Décrit les étapes pour migrer d’une version vers une nouvelle. Moodle supporte uniquement les upgrade et les plugins ne peuvent pas être downgrade.
 
@@ -1859,7 +1859,7 @@ function xmldb_[plugintype]_[pluginname]_upgrade($oldversion): bool {
                                                                                                                                                                  
 
 
-## Annexe - Code utile en PHP {#annexe-code-utile-en-php}
+## Annexe - Code utile en PHP
 
 
 ```
