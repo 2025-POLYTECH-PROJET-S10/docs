@@ -1,0 +1,56 @@
+services:
+  moodle:
+    image: bitnami/moodle:4.5
+    ports:
+      - "8080:8080"
+    volumes:
+      - moodle_app:/bitnami/moodle
+      - moodle_data:/bitnami/moodledata
+      - ./foetapp360:/bitnami/moodle/mod/foetapp360
+    environment:
+      MOODLE_USERNAME: admin
+      MOODLE_PASSWORD: 12345
+      MOODLE_DATABASE_TYPE: pgsql
+      MOODLE_DATABASE_PORT_NUMBER: 5432
+      MOODLE_DATABASE_HOST: postgres
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_DATABASE_USER: moodle
+      MOODLE_DATABASE_PASSWORD: moodle
+      MOODLE_URL: http://localhost:8080
+      BITNAMI_DEBUG: true
+      MOODLE_DEBUG: 1
+    depends_on:
+      - postgres
+    networks:
+      - moodle-net
+
+  postgres:
+    image: postgres:16
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: moodle
+      POSTGRES_USER: moodle
+      POSTGRES_PASSWORD: moodle
+    networks:
+      - moodle-net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - postgres
+    networks:
+      - moodle-net
+
+volumes:
+  moodle_app:
+  moodle_data:
+  pgdata:
+
+networks:
+  moodle-net:
